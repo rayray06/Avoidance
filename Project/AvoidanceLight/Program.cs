@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using AvoidanceLight.Models.Entity;
+using AvoidanceLight.Models.Tools;
+using System.Threading;
+
+int ScreenSize = 20;
+Environement RunningEnv = Environement.GetInstance(ScreenSize*2,ScreenSize,2000);
+
+RunningEnv.Setup();
+RunningEnv.Run();
