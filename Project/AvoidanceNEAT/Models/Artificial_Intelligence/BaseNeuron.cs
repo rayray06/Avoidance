@@ -1,5 +1,5 @@
 
-namespace AvoidanceLight.Models.AINetwork
+namespace AvoidanceNEAT.Models.AINetwork
 {
     /// <summary>
     /// Class defining the basic working of a neuron

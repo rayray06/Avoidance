@@ -1,5 +1,5 @@
-﻿using AvoidanceLight.Models.Entity;
-using AvoidanceLight.Models.Tools;
+﻿using AvoidanceNEAT.Models.Entity;
+using AvoidanceNEAT.Models.Tools;
 using System.Threading;
 
 int ScreenSize = 20;

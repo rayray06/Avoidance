@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace AvoidanceLight.Models.AINetwork
+namespace AvoidanceNEAT.Models.AINetwork
 {
     /// <summary>
     /// Class defining the neural network processing

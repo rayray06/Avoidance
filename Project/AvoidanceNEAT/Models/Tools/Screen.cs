@@ -1,6 +1,6 @@
-using AvoidanceLight.Models.Entity;
+using AvoidanceNEAT.Models.Entity;
 
-namespace AvoidanceLight.Models.Tools
+namespace AvoidanceNEAT.Models.Tools
 {
     public class Screen
     {

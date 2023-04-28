@@ -1,7 +1,7 @@
-using AvoidanceLight.Models.Entity;
+using AvoidanceNEAT.Models.Entity;
 using System.Windows.Input;
 
-namespace AvoidanceLight.Models.Tools
+namespace AvoidanceNEAT.Models.Tools
 {
     public class Playground
     {

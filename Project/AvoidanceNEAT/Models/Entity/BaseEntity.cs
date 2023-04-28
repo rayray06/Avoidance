@@ -1,5 +1,5 @@
 
-namespace AvoidanceLight.Models.Entity
+namespace AvoidanceNEAT.Models.Entity
 {
     /// <summary>
     /// Class defining the base from each entity of the environment
