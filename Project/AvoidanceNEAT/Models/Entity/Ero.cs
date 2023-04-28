@@ -15,6 +15,8 @@ namespace AvoidanceLight.Models.Entity
         public double score { get; private set; } = 0;
         public bool alive { get; private set; } = true;
 
+        private static double minweights = -10;
+        private static double maxweights = 10;
 
         private static readonly float MutationMax = 5;
         private static readonly float MutationChance = 15;
@@ -51,7 +53,7 @@ namespace AvoidanceLight.Models.Entity
         public Ero(int XStartPos,int YStartPos,Playground env,Ero? firstParent = null, Ero? secondParent = null):
         base(XStartPos,YStartPos,Ero.SetSprite(),1,0)
         {   
-            this.brain = new NeuralNetwork( GetInputTemplate(),GetHiddenLayerTemplate(),GetOutputTemplate());
+            this.brain = new NeuralNetwork( GetInputTemplate(),GetHiddenLayerTemplate(),GetOutputTemplate(),minweights,maxweights);
             this.eroEnvironement = env;
             if(firstParent != null && secondParent != null)
             {
