@@ -1,0 +1,15 @@
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\bin\Debug\net6.0\AvoidanceLight.exe
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\bin\Debug\net6.0\AvoidanceLight.deps.json
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\bin\Debug\net6.0\AvoidanceLight.runtimeconfig.json
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\bin\Debug\net6.0\AvoidanceLight.dll
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\bin\Debug\net6.0\AvoidanceLight.pdb
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\obj\Debug\net6.0\AvoidanceLight.csproj.AssemblyReference.cache
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\obj\Debug\net6.0\AvoidanceLight.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\obj\Debug\net6.0\AvoidanceLight.AssemblyInfoInputs.cache
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\obj\Debug\net6.0\AvoidanceLight.AssemblyInfo.cs
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\obj\Debug\net6.0\AvoidanceLight.csproj.CoreCompileInputs.cache
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\obj\Debug\net6.0\AvoidanceLight.dll
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\obj\Debug\net6.0\refint\AvoidanceLight.dll
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\obj\Debug\net6.0\AvoidanceLight.pdb
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\obj\Debug\net6.0\AvoidanceLight.genruntimeconfig.cache
+C:\Users\ray-h\Documents\Git\AiDestroyer\Avoidance\Project\AvoidanceLight\obj\Debug\net6.0\ref\AvoidanceLight.dll
