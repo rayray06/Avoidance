@@ -13,3 +13,5 @@ bld/
 # Visual Studio 2015 cache/options directory
 /Project/AvoidanceNEAT/.vs
 /Project/AvoidanceNEAT/.vscode
+/Project/AvoidanceLight/.vs
+/Project/AvoidanceLight/.vscode
