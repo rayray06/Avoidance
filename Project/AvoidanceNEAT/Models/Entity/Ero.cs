@@ -51,7 +51,7 @@ namespace AvoidanceNEAT.Models.Entity
         /// <summary>
         /// The Environement Where the Ero is located
         /// </summary>
-        public readonly Playground eroEnvironement;
+        public readonly Playground eroPlayground;
 
         /// <summary>
         /// The path of the Neural wetwork template
@@ -119,7 +119,7 @@ namespace AvoidanceNEAT.Models.Entity
         {   
             // Initializing the hero brain 
             this.brain = new NeuralNetwork( GetInputTemplate(),GetHiddenLayerTemplate(),GetOutputTemplate(),minweights,maxweights);
-            this.eroEnvironement = env;
+            this.eroPlayground = env;
 
             // If the two parent are definied then Inherit and Mutate 
             if(firstParent != null && secondParent != null)
@@ -139,7 +139,7 @@ namespace AvoidanceNEAT.Models.Entity
         base(XStartPos,YStartPos,Ero.SetSprite(),1,0)
         {
             this.brain = ero.brain;
-            this.eroEnvironement = ero.eroEnvironement;
+            this.eroPlayground = ero.eroPlayground;
         }
 
         /// <summary>
@@ -459,7 +459,7 @@ namespace AvoidanceNEAT.Models.Entity
             double[] inputList = new double[GetInputTemplate()];
 
             // We retrieve the screen
-            Screen view = eroEnvironement.MainScreen;
+            Screen view = eroPlayground.MainScreen;
 
             List<Task> currentThreads = new List<Task>();
 

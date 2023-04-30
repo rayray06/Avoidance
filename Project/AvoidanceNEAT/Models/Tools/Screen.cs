@@ -2,12 +2,29 @@ using AvoidanceNEAT.Models.Entity;
 
 namespace AvoidanceNEAT.Models.Tools
 {
+    /// <summary>
+    /// Screen class representing the screen
+    /// </summary>
     public class Screen
     {
+        /// <summary>
+        /// The horizontal size of the screen
+        /// </summary>
         public int Xsize { get; private set; }
+        /// <summary>
+        /// The vertical size of the screen
+        /// </summary>
         public int Ysize { get; private set; }
+        /// <summary>
+        /// The screen composition
+        /// </summary>
         public char[,] ScreenComposition { get; private set; } = new char[0,0];
 
+        /// <summary>
+        /// The base constructor for the screen
+        /// </summary>
+        /// <param name="Xparam">The Horizontal size of the screen</param>
+        /// <param name="Yparam">The vertical size of the screen</param>
         public Screen(int Xparam,int Yparam)
         {
             this.Xsize = Xparam;
@@ -16,6 +33,9 @@ namespace AvoidanceNEAT.Models.Tools
             InitScreen();
         }
 
+        /// <summary>
+        /// Fill the screen of empty character
+        /// </summary>
         public void InitScreen()
         {
             for(int i = 0; i < this.Ysize;i++)
@@ -28,7 +48,10 @@ namespace AvoidanceNEAT.Models.Tools
             
 
         }
-
+        /// <summary>
+        /// Add an object to the screen
+        /// </summary>
+        /// <param name="Object">The entity to display on the screen</param>
         public void AddObject(BaseEntity Object)
         {
             for(int i = 0; (i + Object.YPosition) < this.Ysize && i < Object.Ysize ;i++)
@@ -43,12 +66,16 @@ namespace AvoidanceNEAT.Models.Tools
             }
         }
 
+        /// <summary>
+        /// Display the screen in the console
+        /// </summary>
         public void Display()
         {
-
             try
             {
+                // We hide the cursor
                 Console.CursorVisible = false;
+                // We fill each cursor with the console position
                 for(int i = 0; i < this.Ysize;i++)
                 {
                     for(int j = 0; j < this.Xsize;j++)
@@ -63,7 +90,7 @@ namespace AvoidanceNEAT.Models.Tools
             {
 
             }
-
+            // We reinitialise the screen 
             InitScreen();
         }
         
