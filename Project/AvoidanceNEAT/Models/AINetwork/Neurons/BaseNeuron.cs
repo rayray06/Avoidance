@@ -1,5 +1,7 @@
+using AvoidanceNEAT.Models.AINetwork.Layers;
+using AvoidanceNEAT.Models.AINetwork.Object;
 
-namespace AvoidanceNEAT.Models.AINetwork
+namespace AvoidanceNEAT.Models.AINetwork.Neurons
 {
     /// <summary>
     /// Class defining the basic working of a neuron
@@ -9,7 +11,7 @@ namespace AvoidanceNEAT.Models.AINetwork
         /// <summary>
         /// The weigths list where each weigth correspond to the next neuron 
         /// </summary>
-        protected List<double> weigths { get; set; } = new List<double>();
+        protected List<Link> previousLayerLinks { get; set; } = new List<Link>();
         /// <summary>
         /// Random object used throughout the object
         /// </summary>
@@ -18,33 +20,22 @@ namespace AvoidanceNEAT.Models.AINetwork
         /// <summary>
         /// The output value of the neuron
         /// </summary>
-        public double output { get; set; }
-        
+        public double output { get; protected set; }
+
         /// <summary>
         /// Base Constructor of the neuron
         /// </summary>
-        /// <param name="NeuronCount">Number of previous neuron</param>
+        /// <param name="PreviousLayer">The layer of inputValues</param>
         /// <param name="maxweights">Maximum Weight value </param>
         /// <param name="minweights">Minimum Weigth value </param>
-        public BaseNeuron(int NeuronCount,double maxweights,double minweights)
+        public BaseNeuron(Layer PreviousLayer, double maxweights, double minweights)
         {
             // For each neuron we create give a random weigth
-            for(int i = 0; i < NeuronCount; i++)
+            foreach (BaseNeuron neuron in PreviousLayer.Neurons)
             {
-                this.weigths.Add(minweights+(this.rdn.NextDouble()*(maxweights-minweights)));
-            }
-        }
 
-        /// <summary>
-        /// Constructonr used to copy a weigth list to the new neuron
-        /// </summary>
-        /// <param name="weightList">the weigth list to copy</param>
-        public BaseNeuron(List<int> weightList)
-        {
-            // We copy each weigth and set them at the same position
-            for(int i = 0; i < weightList.Count(); i++)
-            {
-                this.weigths.Add(weightList[i]);
+                double weigth = minweights + rdn.NextDouble() * (maxweights - minweights);
+                previousLayerLinks.Add(new Link(weigth, neuron));
             }
         }
 
@@ -61,13 +52,14 @@ namespace AvoidanceNEAT.Models.AINetwork
         /// </summary>
         /// <param name="firstParent">Equivalenet neuron from the first parent</param>
         /// <param name="secondParent">Equivalent neuron from the second parent</param>
-        public void Inherit(BaseNeuron firstParent,BaseNeuron secondParent)
+        public void Inherit(BaseNeuron firstParent, BaseNeuron secondParent)
         {
             // For each weigth we chose randomly between the two parent values
-            for(int i = 0; i < weigths.Count(); i++ )
+            for (int i = 0; i < previousLayerLinks.Count(); i++)
             {
                 double chance = rdn.NextDouble();
-                weigths[i] = (chance < 0.5)?firstParent.weigths[i]:secondParent.weigths[i];
+                double weight = chance < 0.5 ? firstParent.previousLayerLinks[i].weight : secondParent.previousLayerLinks[i].weight;
+                previousLayerLinks[i] = new Link(weight, previousLayerLinks[i].InputNeuron);
             }
         }
 
@@ -76,17 +68,17 @@ namespace AvoidanceNEAT.Models.AINetwork
         /// </summary>
         /// <param name="MutationChance">The mutation chances between 0-100</param>
         /// <param name="MutationMax">The absolute value of change in the Mutation value</param>
-        public void Mutate(float MutationChance,float MutationMax)
+        public void Mutate(float MutationChance, float MutationMax)
         {
             // for each weigth process the mutation
-            for(int i = 0; i < weigths.Count(); i++ )
+            for (int i = 0; i < previousLayerLinks.Count(); i++)
             {
-                double chance = rdn.NextDouble()*100;
+                double chance = rdn.NextDouble() * 100;
                 // if mutation randomly modify the weigth value
-                if(chance < MutationChance)
+                if (chance < MutationChance)
                 {
-                    double value = (rdn.NextDouble()*(MutationMax*2))-MutationMax;
-                    weigths[i] = weigths[i] + value; 
+                    double value = rdn.NextDouble() * (MutationMax * 2) - MutationMax;
+                    previousLayerLinks[i].weight = previousLayerLinks[i].weight + value;
                 }
             }
 
@@ -96,14 +88,13 @@ namespace AvoidanceNEAT.Models.AINetwork
         /// <summary>
         /// Calculate the neuron value
         /// </summary>
-        /// <param name="input">The list of input corresponding to the previous neuron</param>
-        public void Calculate(double[] input)
+        public void Calculate()
         {
-            this.output = 0;
+            output = 0;
             // for each neuron we add to the output the input multiplied by the weigth
-            for(int i = 0; i<input.Count() ; i++)
+            foreach (Link link in previousLayerLinks)
             {
-                this.output += input[i] * this.weigths[i];
+                output += link.getResult();
             }
         }
     }
