@@ -18,4 +18,8 @@ bld/
 /.vs
 /.vscode
 /Project/AvoidanceLight/obj
-/Project/AvoidanceLight/obj
+Project/AvoidanceLight/obj
+.vs
+.vscode
+bin
+obj
